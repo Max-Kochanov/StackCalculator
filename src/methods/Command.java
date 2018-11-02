@@ -1,5 +1,7 @@
 package methods;
 
+import exceptions.StackException;
+
 public interface Command {
-    public void command();
+    void command() throws StackException;
 }

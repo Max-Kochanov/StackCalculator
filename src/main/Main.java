@@ -1,11 +1,9 @@
 package main;
-
+import exceptions.StackException;
 import methods.Command;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-
 import static main.FactoryMethod.getCommandByName;
 
 public class Main {
@@ -14,7 +12,7 @@ public class Main {
     public static boolean checkerFileOrKeyboard;
 
     public static void fileInput() throws FileNotFoundException {
-           scannerFile = new Scanner(new File("E:\\Java_projects\\StackCalculator 2.0\\src\\input\\Inpu"));
+           scannerFile = new Scanner(new File("E:\\Java_projects\\StackCalculator 2.0\\src\\input\\Input"));
            checkerFileOrKeyboard = true;
     }
 
@@ -33,7 +31,13 @@ public class Main {
             while (scannerFile.hasNext()) {
                 string = scannerFile.next();
                 Command CurrentClass = getCommandByName(string);
-                CurrentClass.command();
+                try {
+                    CurrentClass.command();
+                }
+                catch(StackException ex){
+                    System.out.println(ex);
+                    return;
+                }
             }
         }
         else{
@@ -41,9 +45,14 @@ public class Main {
 
             while(true) {
                 Command CurrentClass = getCommandByName(string);
-                CurrentClass.command();
+                try {
+                    CurrentClass.command();
+                }
+                catch(StackException ex){
+                    System.out.println(ex);
+                    return;
+                }
                 string = scannerKeyboard.next();
-                if(string.equals("Break")) break;
             }
         }
 

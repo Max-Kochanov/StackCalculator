@@ -1,24 +1,23 @@
 package main;
 import methods.*;
-
 import static main.Main.checkerFileOrKeyboard;
 
 public class FactoryMethod{
 
     public static Command getCommandByName(String string){
         switch(string){
-            case "Sqrt" : return new Sqrt();
-            case "Sum" : return new Sum();
-            case "Difference" : return new Difference();
-            case "Division" : return new Division();
-            case "Product" : return new Product();
-            case "Print" : return new Print();
-            case "Push" : {
+            case "sqrt" : return new Sqrt();
+            case "sum" : return new Sum();
+            case "diff" : return new Difference();
+            case "divide" : return new Division();
+            case "product" : return new Product();
+            case "print" : return new Print();
+            case "push" : {
                 if(checkerFileOrKeyboard == true) return new PushForFile();
                 else return new PushForKeyboard();
             }
-            case "Pop" : return new Pop();
-            case "Define" : {
+            case "pop" : return new Pop();
+            case "define" : {
                 if(checkerFileOrKeyboard == true) return new DefineForFile();
                 else return new DefineForKeyboard();
             }
@@ -26,6 +25,7 @@ public class FactoryMethod{
                 if(checkerFileOrKeyboard == true) return new CommendforFile();
                 else return new CommendForKeyboard();
             }
+            case "break" : return null;
             default: {
                 System.out.println("Unknown command");
                 return null;

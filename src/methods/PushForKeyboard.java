@@ -11,6 +11,7 @@ public class PushForKeyboard implements Command{
         letterPush = Main.scannerKeyboard.next();
 
         boolean checker = DefineForKeyboard.letter.equals(letterPush);
+
         if(checker){
             stack.push(DefineForKeyboard.digit);
         }
