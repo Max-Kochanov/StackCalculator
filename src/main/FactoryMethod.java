@@ -13,21 +13,21 @@ public class FactoryMethod{
             case "product" : return new Product();
             case "print" : return new Print();
             case "push" : {
-                if(checkerFileOrKeyboard == true) return new PushForFile();
+                if(checkerFileOrKeyboard) return new PushForFile();
                 else return new PushForKeyboard();
             }
             case "pop" : return new Pop();
             case "define" : {
-                if(checkerFileOrKeyboard == true) return new DefineForFile();
+                if(checkerFileOrKeyboard) return new DefineForFile();
                 else return new DefineForKeyboard();
             }
             case "#" : {
-                if(checkerFileOrKeyboard == true) return new CommendforFile();
+                if(checkerFileOrKeyboard) return new CommendforFile();
                 else return new CommendForKeyboard();
             }
             case "break" : return null;
             default: {
-                System.out.println("Unknown command");
+                System.out.println("Incorrect command");
                 return null;
             }
         }
